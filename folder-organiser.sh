@@ -60,8 +60,8 @@ if [[ -d "$folder" ]]; then
             counter=1
 
             while [ -f "$target_file" ]; do
-                target_file="$target_dir/${filename}(${counter})${ext}"
-                ((counter++))
+                target_file="$target_dir/${filename}(${n})${extension}"
+                ((n++))
             done
 
             # Extract the final destination filename for logging
