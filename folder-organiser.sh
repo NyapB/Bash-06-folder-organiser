@@ -60,7 +60,7 @@ if [[ -d "$folder" ]]; then
             counter=1
 
             while [ -f "$target_file" ]; do
-                target_file="$target_dir/${basename}(${counter})${ext}"
+                target_file="$target_dir/${filename}(${counter})${ext}"
                 ((counter++))
             done
 
