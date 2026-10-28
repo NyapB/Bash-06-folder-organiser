@@ -49,6 +49,13 @@ if [[ -d "$folder" ]]; then
                     esac 
                 
                 fi
+
+                # Display the filename and its category
+                echo "$filename -> $category"
+                #create target directory if it doesn't exist
+                target_dir="$folder/$category"
+                mkdir -p "$target_dir"
+
             fi
     done
 # else
