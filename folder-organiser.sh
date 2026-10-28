@@ -56,6 +56,31 @@ if [[ -d "$folder" ]]; then
                 target_dir="$folder/$category"
                 mkdir -p "$target_dir"
 
+                target_file="$target_dir/$filename"
+            counter=1
+
+            while [ -f "$target_file" ]; do
+                target_file="$target_dir/${base_name}(${counter})${ext}"
+                ((counter++))
+            done
+            # ----------------------------------
+
+            # Extract the final destination filename for logging
+            final_filename="${target_file##*/}"
+
+            # Move the file to its final, unique destination
+            mv "$file" "$target_file"
+
+             Print each individual move
+            if [ "$filename" = "$final_filename" ]; then
+                echo "Moved:  $filename -> $category/"
+            else
+                echo "Renamed & Moved: $filename -> $category/$final_filename"
+            fi
+
+            # Increment final summary counter
+            ((files_moved_count++))
+
             fi
     done
 # else
