@@ -13,8 +13,8 @@ if [[ -d "$folder" ]]; then
     #sorting items directly inside the folder.
     for file in "$folder"/*; do
 
-            # Skip items that are not regular files
-            if [ -f "$file" ]; then
+            # Skip items that are not files and ignore folders
+            if [[ -f "$file" ]] && [[ ! -L "$file" ]]; then
 
                 # Get the filename from the full path
                 filename="${file##*/}"
