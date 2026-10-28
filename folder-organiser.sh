@@ -60,10 +60,9 @@ if [[ -d "$folder" ]]; then
             counter=1
 
             while [ -f "$target_file" ]; do
-                target_file="$target_dir/${base_name}(${counter})${ext}"
+                target_file="$target_dir/${basename}(${counter})${ext}"
                 ((counter++))
             done
-            # ----------------------------------
 
             # Extract the final destination filename for logging
             final_filename="${target_file##*/}"
@@ -71,7 +70,7 @@ if [[ -d "$folder" ]]; then
             # Move the file to its final, unique destination
             mv "$file" "$target_file"
 
-             Print each individual move
+             #Print each individual move
             if [ "$filename" = "$final_filename" ]; then
                 echo "Moved:  $filename -> $category/"
             else
